@@ -1,0 +1,17 @@
+defines = -DUSE_UDEV -DUSE_AURA=1 -DUSE_GLIB=1 -DUSE_NSS_CERTS=1 -DUSE_OZONE=1 -DUSE_X11=1 -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -DCR_SYSROOT_HASH=43a87bbebccad99325fdcf34166295b121ee15c7 -DNDEBUG -DNVALGRIND -DDYNAMIC_ANNOTATIONS_ENABLED=0
+include_dirs = -I../../third_party/zlib -I../.. -Igen
+cflags = -fno-ident -fno-strict-aliasing --param=ssp-buffer-size=4 -fstack-protector -funwind-tables -fPIC -pipe -pthread -m64 -march=x86-64 -msse3 -Wno-builtin-macro-redefined -D__DATE__= -D__TIME__= -D__TIMESTAMP__= -fno-omit-frame-pointer -g0 -fvisibility=hidden -O3 -fdata-sections -ffunction-sections -Wno-unused-local-typedefs -Wno-maybe-uninitialized -Wno-deprecated-declarations -Wno-comments -Wno-packed-not-aligned -Wno-missing-field-initializers -Wno-unused-parameter
+cflags_c = -std=gnu11 --sysroot=../../build/linux/debian_sid_amd64-sysroot
+label_name = minizip_bin
+target_out_dir = obj/third_party/zlib
+target_output_name = minizip_bin
+
+build obj/third_party/zlib/minizip_bin/minizip.o: cc ../../third_party/zlib/contrib/minizip/minizip.c
+
+build ./minizip_bin: link obj/third_party/zlib/minizip_bin/minizip.o obj/third_party/zlib/zlib_adler32_simd/adler32_simd.o obj/third_party/zlib/zlib_inflate_chunk_simd/inffast_chunk.o obj/third_party/zlib/zlib_inflate_chunk_simd/inflate.o obj/third_party/zlib/zlib_crc32_simd/crc32_simd.o obj/third_party/zlib/zlib_x86_simd/crc_folding.o obj/third_party/zlib/zlib_x86_simd/fill_window_sse.o obj/third_party/zlib/libminizip.a obj/third_party/zlib/libchrome_zlib.a || obj/build/config/executable_deps.stamp obj/third_party/zlib/zlib_adler32_simd.stamp obj/third_party/zlib/zlib_common_headers.stamp obj/third_party/zlib/zlib_inflate_chunk_simd.stamp obj/third_party/zlib/zlib_crc32_simd.stamp obj/third_party/zlib/zlib_x86_simd.stamp
+  ldflags = -Wl,--fatal-warnings -Wl,--build-id -fPIC -Wl,-z,noexecstack -Wl,-z,relro -Wl,-z,now -fuse-ld=gold -Wl,--threads -Wl,--thread-count=4 -m64 -rdynamic --sysroot=../../build/linux/debian_sid_amd64-sysroot -Wl,-z,defs -Wl,--as-needed -pie -Wl,--disable-new-dtags -Wl,-O2 -Wl,--gc-sections
+  libs = -latomic -ldl -lpthread -lrt
+  frameworks =
+  swiftmodules =
+  output_extension = 
+  output_dir = .

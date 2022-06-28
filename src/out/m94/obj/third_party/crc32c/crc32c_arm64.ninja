@@ -1,0 +1,11 @@
+defines = -DUSE_UDEV -DUSE_AURA=1 -DUSE_GLIB=1 -DUSE_NSS_CERTS=1 -DUSE_OZONE=1 -DUSE_X11=1 -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D_FORTIFY_SOURCE=2 -DCR_SYSROOT_HASH=43a87bbebccad99325fdcf34166295b121ee15c7 -DNDEBUG -DNVALGRIND -DDYNAMIC_ANNOTATIONS_ENABLED=0 -DBYTE_ORDER_BIG_ENDIAN=0 -DCRC32C_TESTS_BUILT_WITH_GLOG=0 -DHAVE_MM_PREFETCH=1 -DHAVE_SSE42=1 -DHAVE_BUILTIN_PREFETCH=1 -DHAVE_ARM64_CRC32C=0 -DHAVE_STRONG_GETAUXVAL=1 -DHAVE_WEAK_GETAUXVAL=1
+include_dirs = -I../.. -Igen -I../../third_party/crc32c/config -I../../third_party/crc32c/src/include
+cflags = -fno-ident -fno-strict-aliasing --param=ssp-buffer-size=4 -fstack-protector -funwind-tables -fPIC -pipe -pthread -m64 -march=x86-64 -msse3 -Wno-builtin-macro-redefined -D__DATE__= -D__TIME__= -D__TIMESTAMP__= -Wall -Wno-unused-local-typedefs -Wno-maybe-uninitialized -Wno-deprecated-declarations -Wno-comments -Wno-packed-not-aligned -Wno-missing-field-initializers -Wno-unused-parameter -O2 -fdata-sections -ffunction-sections -fno-omit-frame-pointer -g0 -fvisibility=hidden
+cflags_cc = -std=gnu++14 -Wno-narrowing -Wno-class-memaccess -fno-exceptions --sysroot=../../build/linux/debian_sid_amd64-sysroot -fvisibility-inlines-hidden
+label_name = crc32c_arm64
+target_out_dir = obj/third_party/crc32c
+target_output_name = crc32c_arm64
+
+build obj/third_party/crc32c/crc32c_arm64/crc32c_arm64.o: cxx ../../third_party/crc32c/src/src/crc32c_arm64.cc
+
+build obj/third_party/crc32c/crc32c_arm64.stamp: stamp obj/third_party/crc32c/crc32c_arm64/crc32c_arm64.o || obj/third_party/crc32c/crc32c_internal_headers.stamp

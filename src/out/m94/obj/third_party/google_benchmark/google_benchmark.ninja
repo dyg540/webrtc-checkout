@@ -1,0 +1,29 @@
+defines = -DHAVE_GNU_POSIX_REGEX=0 -DHAVE_POSIX_REGEX=0 -DHAVE_STD_REGEX=1 -DUSE_UDEV -DUSE_AURA=1 -DUSE_GLIB=1 -DUSE_NSS_CERTS=1 -DUSE_OZONE=1 -DUSE_X11=1 -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -DCR_SYSROOT_HASH=43a87bbebccad99325fdcf34166295b121ee15c7 -DNDEBUG -DNVALGRIND -DDYNAMIC_ANNOTATIONS_ENABLED=0
+include_dirs = -I../.. -Igen -I../../third_party/google_benchmark/src/include
+cflags = -fno-ident -fno-strict-aliasing --param=ssp-buffer-size=4 -fstack-protector -funwind-tables -fPIC -pipe -pthread -m64 -march=x86-64 -msse3 -Wno-builtin-macro-redefined -D__DATE__= -D__TIME__= -D__TIMESTAMP__= -O2 -fdata-sections -ffunction-sections -fno-omit-frame-pointer -g0 -fvisibility=hidden -Wno-unused-local-typedefs -Wno-maybe-uninitialized -Wno-deprecated-declarations -Wno-comments -Wno-packed-not-aligned -Wno-missing-field-initializers -Wno-unused-parameter
+cflags_cc = -std=gnu++14 -fno-exceptions --sysroot=../../build/linux/debian_sid_amd64-sysroot -fvisibility-inlines-hidden -Wno-narrowing -Wno-class-memaccess
+label_name = google_benchmark
+target_out_dir = obj/third_party/google_benchmark
+target_output_name = google_benchmark
+
+build obj/third_party/google_benchmark/google_benchmark/benchmark.o: cxx ../../third_party/google_benchmark/src/src/benchmark.cc
+build obj/third_party/google_benchmark/google_benchmark/benchmark_api_internal.o: cxx ../../third_party/google_benchmark/src/src/benchmark_api_internal.cc
+build obj/third_party/google_benchmark/google_benchmark/benchmark_name.o: cxx ../../third_party/google_benchmark/src/src/benchmark_name.cc
+build obj/third_party/google_benchmark/google_benchmark/benchmark_register.o: cxx ../../third_party/google_benchmark/src/src/benchmark_register.cc
+build obj/third_party/google_benchmark/google_benchmark/benchmark_runner.o: cxx ../../third_party/google_benchmark/src/src/benchmark_runner.cc
+build obj/third_party/google_benchmark/google_benchmark/colorprint.o: cxx ../../third_party/google_benchmark/src/src/colorprint.cc
+build obj/third_party/google_benchmark/google_benchmark/commandlineflags.o: cxx ../../third_party/google_benchmark/src/src/commandlineflags.cc
+build obj/third_party/google_benchmark/google_benchmark/complexity.o: cxx ../../third_party/google_benchmark/src/src/complexity.cc
+build obj/third_party/google_benchmark/google_benchmark/console_reporter.o: cxx ../../third_party/google_benchmark/src/src/console_reporter.cc
+build obj/third_party/google_benchmark/google_benchmark/counter.o: cxx ../../third_party/google_benchmark/src/src/counter.cc
+build obj/third_party/google_benchmark/google_benchmark/csv_reporter.o: cxx ../../third_party/google_benchmark/src/src/csv_reporter.cc
+build obj/third_party/google_benchmark/google_benchmark/json_reporter.o: cxx ../../third_party/google_benchmark/src/src/json_reporter.cc
+build obj/third_party/google_benchmark/google_benchmark/perf_counters.o: cxx ../../third_party/google_benchmark/src/src/perf_counters.cc
+build obj/third_party/google_benchmark/google_benchmark/reporter.o: cxx ../../third_party/google_benchmark/src/src/reporter.cc
+build obj/third_party/google_benchmark/google_benchmark/sleep.o: cxx ../../third_party/google_benchmark/src/src/sleep.cc
+build obj/third_party/google_benchmark/google_benchmark/statistics.o: cxx ../../third_party/google_benchmark/src/src/statistics.cc
+build obj/third_party/google_benchmark/google_benchmark/string_util.o: cxx ../../third_party/google_benchmark/src/src/string_util.cc
+build obj/third_party/google_benchmark/google_benchmark/sysinfo.o: cxx ../../third_party/google_benchmark/src/src/sysinfo.cc
+build obj/third_party/google_benchmark/google_benchmark/timers.o: cxx ../../third_party/google_benchmark/src/src/timers.cc
+
+build obj/third_party/google_benchmark/google_benchmark.stamp: stamp obj/third_party/google_benchmark/google_benchmark/benchmark.o obj/third_party/google_benchmark/google_benchmark/benchmark_api_internal.o obj/third_party/google_benchmark/google_benchmark/benchmark_name.o obj/third_party/google_benchmark/google_benchmark/benchmark_register.o obj/third_party/google_benchmark/google_benchmark/benchmark_runner.o obj/third_party/google_benchmark/google_benchmark/colorprint.o obj/third_party/google_benchmark/google_benchmark/commandlineflags.o obj/third_party/google_benchmark/google_benchmark/complexity.o obj/third_party/google_benchmark/google_benchmark/console_reporter.o obj/third_party/google_benchmark/google_benchmark/counter.o obj/third_party/google_benchmark/google_benchmark/csv_reporter.o obj/third_party/google_benchmark/google_benchmark/json_reporter.o obj/third_party/google_benchmark/google_benchmark/perf_counters.o obj/third_party/google_benchmark/google_benchmark/reporter.o obj/third_party/google_benchmark/google_benchmark/sleep.o obj/third_party/google_benchmark/google_benchmark/statistics.o obj/third_party/google_benchmark/google_benchmark/string_util.o obj/third_party/google_benchmark/google_benchmark/sysinfo.o obj/third_party/google_benchmark/google_benchmark/timers.o

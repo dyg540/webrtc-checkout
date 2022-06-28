@@ -1,0 +1,9 @@
+./crc32c_tests
+../../testing/location_tags.json
+../../.vpython
+bin/run_crc32c_tests
+../../testing/test_env.py
+../../testing/xvfb.py
+../../testing/scripts/common.py
+../../build/util/lib/__init__.py
+../../build/util/lib/results/

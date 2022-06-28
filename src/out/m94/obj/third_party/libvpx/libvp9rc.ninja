@@ -1,0 +1,14 @@
+defines = -DUSE_UDEV -DUSE_AURA=1 -DUSE_GLIB=1 -DUSE_NSS_CERTS=1 -DUSE_OZONE=1 -DUSE_X11=1 -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -DCR_SYSROOT_HASH=43a87bbebccad99325fdcf34166295b121ee15c7 -DNDEBUG -DNVALGRIND -DDYNAMIC_ANNOTATIONS_ENABLED=0
+include_dirs = -I../.. -Igen -I../../third_party/libvpx/source/config -I../../third_party/libvpx/source/config/linux/x64 -I../../third_party/libvpx/source/libvpx
+cflags = -fno-ident -fno-strict-aliasing --param=ssp-buffer-size=4 -fstack-protector -funwind-tables -fPIC -pipe -pthread -m64 -march=x86-64 -msse3 -Wno-builtin-macro-redefined -D__DATE__= -D__TIME__= -D__TIMESTAMP__= -O2 -fdata-sections -ffunction-sections -fno-omit-frame-pointer -g0 -fvisibility=hidden -Wno-unused-local-typedefs -Wno-maybe-uninitialized -Wno-deprecated-declarations -Wno-comments -Wno-packed-not-aligned -Wno-missing-field-initializers -Wno-unused-parameter -Wno-unused-function -Wno-sign-compare
+cflags_cc = -std=gnu++14 -fno-exceptions --sysroot=../../build/linux/debian_sid_amd64-sysroot -fvisibility-inlines-hidden -Wno-narrowing -Wno-class-memaccess
+label_name = libvp9rc
+target_out_dir = obj/third_party/libvpx
+target_output_name = libvp9rc
+
+build obj/third_party/libvpx/libvp9rc/ratectrl_rtc.o: cxx ../../third_party/libvpx/source/libvpx/vp9/ratectrl_rtc.cc
+
+build obj/third_party/libvpx/libvp9rc.a: alink obj/third_party/libvpx/libvp9rc/ratectrl_rtc.o || obj/third_party/libvpx/libvpx.a obj/third_party/libvpx/libvpx_x86_64_headers.stamp obj/third_party/libvpx/libvpx_asm.a obj/third_party/libvpx/libvpx_intrinsics_avx.stamp obj/third_party/libvpx/libvpx_intrinsics_avx2.stamp obj/third_party/libvpx/libvpx_intrinsics_avx512.stamp obj/third_party/libvpx/libvpx_intrinsics_mmx.stamp obj/third_party/libvpx/libvpx_intrinsics_sse2.stamp obj/third_party/libvpx/libvpx_intrinsics_sse4_1.stamp obj/third_party/libvpx/libvpx_intrinsics_ssse3.stamp
+  arflags = -T
+  output_extension = .a
+  output_dir = obj/third_party/libvpx
